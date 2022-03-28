@@ -1,23 +1,70 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.scss";
+import { Success } from "./components";
 
 function App() {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [value, setValue] = useState(null);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitted(true);
+  };
+
+  const handleValue = (e) => {
+    setValue(e.target.value);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="main-content">
+        {isSubmitted ? (
+          <Success value={value} />
+        ) : (
+          <>
+            <div className="star">
+              <img src="../images/icon-star.svg" alt="star" />
+            </div>
+            <div className="content">
+              <h1>How did we do?</h1>
+              <p>
+                Please let us know how we did with your support request. All
+                feedback is appreclated to help us improve our offering!
+              </p>
+            </div>
+            <ul className="ratings">
+              <li>
+                <button onClick={handleValue} value="1">
+                  1
+                </button>
+              </li>
+              <li>
+                <button onClick={handleValue} value="2">
+                  2
+                </button>
+              </li>
+              <li>
+                <button onClick={handleValue} value="3">
+                  3
+                </button>
+              </li>
+              <li>
+                <button onClick={handleValue} value="4">
+                  4
+                </button>
+              </li>
+              <li>
+                <button onClick={handleValue} value="5">
+                  5
+                </button>
+              </li>
+            </ul>
+            <button className="submit" onClick={handleSubmit}>
+              SUBMIT
+            </button>
+          </>
+        )}
+      </div>
     </div>
   );
 }

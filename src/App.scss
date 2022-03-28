@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap");
+
+:root {
+  --orange: hsl(25, 97%, 53%);
+  --white: hsl(0, 0%, 100%);
+  --lightGrey: hsl(217, 12%, 63%);
+  --mediumGrey: hsl(216, 12%, 54%);
+  --darkBlue: hsl(213, 19%, 18%);
+  --veryDarkBlue: hsl(216, 12%, 8%);
+  --font: 15px;
+  --rounded: 20px;
+  --fontFamily: "Overpass", sans-serif;
+  --normal: 400;
+  --bold: 700;
+}
+
+* {
+  margin: 0;
+}
+
+.App {
+  display: grid;
+  place-items: center;
+  font-size: var(--font);
+  color: var(--lightGrey);
+  font-weight: var(--normal);
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  font-family: var(--fontFamily);
+  background-color: black;
+  line-height: 30px;
+
+  .main-content {
+    background-color: var(--veryDarkBlue);
+    border-radius: var(--rounded);
+    width: 80%;
+    height: 360px;
+    padding: 25px;
+
+    .star {
+      border-radius: 50%;
+      background-color: var(--darkBlue);
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+    .content {
+      text-align: left;
+      margin-bottom: 30px;
+      h1 {
+        color: var(--white);
+        margin-bottom: 20px;
+      }
+    }
+
+    .ratings {
+      display: flex;
+      list-style: none;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0;
+      li {
+        button {
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          background-color: var(--darkBlue);
+          display: grid;
+          place-items: center;
+          border: 1px solid var(--darkBlue);
+          color: var(--lightGrey);
+
+          &:focus {
+            background-color: var(--mediumGrey);
+            border: 1px solid var(--mediumGrey);
+            color: white;
+          }
+
+          &:hover {
+            background-color: var(--orange);
+            border: 1px solid var(--orange);
+            color: white;
+          }
+        }
+      }
+    }
+
+    .submit {
+      margin-top: 25px;
+      height: 45px;
+      width: 100%;
+      border-radius: 40px;
+      background-color: var(--orange);
+      border: 1px solid var(--orange);
+      color: white;
+      letter-spacing: 5px;
+    }
+
+    .ilustarte {
+      margin-top: 10px;
+    }
+
+    .rate {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      p {
+        background-color: var(--darkBlue);
+        border-radius: 40px;
+        color: var(--orange);
+        width: 60%;
+      }
+    }
+
+    .content-next {
+      margin-top: 30px;
+      h1 {
+        color: white;
+      }
+      p {
+        margin-top: 25px;
+        line-height: 23px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .App {
+    .main-content {
+      width: 19%;
+      height: 400px;
+
+      .star {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 35px;
+      }
+
+      .ratings {
+        li {
+          button {
+            width: 50px;
+            height: 50px;
+          }
+        }
+      }
+
+      .submit {
+        margin-top: 30px;
+      }
+
+      .content-next {
+        margin-top: 30px;
+        h1 {
+          color: white;
+        }
+        p {
+          line-height: 23px;
+          margin: 25px 10px 0 10px;
+        }
+      }
+    }
+  }
+}
